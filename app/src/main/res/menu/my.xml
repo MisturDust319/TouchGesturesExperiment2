@@ -1,8 +1,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MyActivity" >
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never" />
+    <item
+        android:id="@+id/menuitem_circle"
+        android:showAsAction="never"
+        android:title="@string/menuitem_circle">
+    </item>
+    <item
+        android:id="@+id/menuitem_line"
+        android:showAsAction="never"
+        android:title="@string/menuitem_line">
+    </item>
+    <item
+        android:id="@+id/menuitem_rectangle"
+        android:showAsAction="never"
+        android:title="@string/menuitem_rectangle">
+    </item>
+    <item
+        android:id="@+id/menuitem_oval"
+        android:showAsAction="never"
+        android:title="@string/menuitem_oval">
+    </item>
 </menu>
