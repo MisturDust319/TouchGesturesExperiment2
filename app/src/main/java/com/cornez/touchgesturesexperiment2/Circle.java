@@ -6,11 +6,13 @@ import android.graphics.RectF;
 
 public class Circle {
 
+    // paint is used to set a color
     private Paint mPaint;
     private float mRadius;
     private float centerX;
     private float centerY;
     private RectF boundedRect;
+    // set line
 
     public Circle() {
         mPaint = new Paint();

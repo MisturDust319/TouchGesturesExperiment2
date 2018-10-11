@@ -8,11 +8,19 @@ import android.view.MenuItem;
 
 public class MyActivity extends Activity {
 
+    // STAN'S ADDITIONS
+    // shape enum
+    String currentShape;
+    GameView curView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(new GameView(this));
+        currentShape = "circle";
+        curView = new GameView(this);
+
+        setContentView(curView);
     }
 
     @Override
@@ -29,8 +37,14 @@ public class MyActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.menuitem_circle) {
-            return true;
+            currentShape = "circle";
         }
+        else if (id == R.id.menuitem_line) {
+            currentShape = "line";
+        }
+        // now set the shape in the GameView
+        curView.setShape(currentShape);
+
         return super.onOptionsItemSelected(item);
     }
 }

@@ -9,6 +9,10 @@ import android.view.View;
 public class GameView extends View {
 
     private Circle mCircle;
+    // STAN'S ADDITIONS
+    private Line mLine;
+    // default shape is circle
+    private String shape;
 
     // Coordinates of points to draw
     private float x1 = (float)300;
@@ -16,11 +20,15 @@ public class GameView extends View {
     private float y1 = (float)200;
     private float y2 = (float)400;
 
+
     public GameView(Context context) {
         super(context);
 
+        // set default shape to circle
+        shape = "circle";
         //CREATE A CIRCLE at initial location
         mCircle = new Circle();
+        mLine = new Line();
     }
 
     @Override
@@ -29,11 +37,24 @@ public class GameView extends View {
         //TASK 1: FILL THE BACKGROUND OF THE CANVAS
         canvas.drawRGB(248, 232, 198);
 
-        //TASK 2: DRAW THE CIRCLE
-        mCircle.setBounds(new RectF(x1, y1, x2, y2));
+        //TASK 2: DRAW THE SHAPE
+        switch(shape) {
+            case "circle":
+                mCircle.setBounds(new RectF(x1, y1, x2, y2));
+                canvas.drawCircle(mCircle.getX(), mCircle.getY(),
+                        mCircle.getRadius(), mCircle.getPaint());
+                break;
+            case "line":
+                // set line values
+                mLine.setStart(x1, y1);
+                mLine.setEnd(x2, y2);
+                // draw the line
+                canvas.drawLine(mLine.getX1(), mLine.getY1(),
+                        mLine.getX2(), mLine.getY2(),
+                        mLine.getPaint());
+                break;
+        }
 
-        canvas.drawCircle(mCircle.getX(), mCircle.getY(),
-                mCircle.getRadius(), mCircle.getPaint());
     }
 
     @Override
@@ -64,5 +85,10 @@ public class GameView extends View {
 
         //TASK 4: RETURNS A TRUE AFTER HANDLING THE TOUCH ACTION EVENT
         return true;
+    }
+
+    // STAN'S ADDITIONS
+    public void setShape(String shape) {
+        this.shape = shape;
     }
 }
