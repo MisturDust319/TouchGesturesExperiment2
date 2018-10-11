@@ -12,6 +12,7 @@ public class GameView extends View {
     // STAN'S ADDITIONS
     private Line mLine;
     // default shape is circle
+    private  Rectangle mRectangle;
     private String shape;
 
     // Coordinates of points to draw
@@ -29,6 +30,7 @@ public class GameView extends View {
         //CREATE A CIRCLE at initial location
         mCircle = new Circle();
         mLine = new Line();
+        mRectangle = new Rectangle();
     }
 
     @Override
@@ -53,6 +55,14 @@ public class GameView extends View {
                         mLine.getX2(), mLine.getY2(),
                         mLine.getPaint());
                 break;
+            case "rectangle":
+                mRectangle.setBounds(x1, y1, x2, y2);
+                // draw the Rect
+                canvas.drawRect(mRectangle.getX1(), mRectangle.getY1(),
+                        mRectangle.getX2(), mRectangle.getY2(),
+                        mRectangle.getPaint());
+                break;
+                
         }
 
     }

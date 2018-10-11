@@ -42,6 +42,9 @@ public class MyActivity extends Activity {
         else if (id == R.id.menuitem_line) {
             currentShape = "line";
         }
+        else if (id == R.id.menuitem_rectangle) {
+            currentShape = "rectangle";
+        }
         // now set the shape in the GameView
         curView.setShape(currentShape);
 
