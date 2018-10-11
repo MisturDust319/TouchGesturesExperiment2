@@ -13,6 +13,7 @@ public class GameView extends View {
     private Line mLine;
     // default shape is circle
     private  Rectangle mRectangle;
+    private Oval mOval;
     private String shape;
 
     // Coordinates of points to draw
@@ -31,6 +32,7 @@ public class GameView extends View {
         mCircle = new Circle();
         mLine = new Line();
         mRectangle = new Rectangle();
+        mOval = new Oval();
     }
 
     @Override
@@ -62,7 +64,11 @@ public class GameView extends View {
                         mRectangle.getX2(), mRectangle.getY2(),
                         mRectangle.getPaint());
                 break;
-                
+            case "oval":
+                mOval.setBounds(new RectF(x1, y1, x2, y2));
+                canvas.drawOval(mOval.getBoundingRect(),
+                        mOval.getPaint());
+                break;
         }
 
     }

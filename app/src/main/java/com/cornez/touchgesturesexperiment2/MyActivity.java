@@ -45,6 +45,9 @@ public class MyActivity extends Activity {
         else if (id == R.id.menuitem_rectangle) {
             currentShape = "rectangle";
         }
+        else if (id == R.id.menuitem_oval) {
+            currentShape = "oval";
+        }
         // now set the shape in the GameView
         curView.setShape(currentShape);
 
